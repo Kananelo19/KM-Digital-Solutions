@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "KM-Digital-Solutions/1.0.0": {
+        "runtime": {
+          "KM-Digital-Solutions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KM-Digital-Solutions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
