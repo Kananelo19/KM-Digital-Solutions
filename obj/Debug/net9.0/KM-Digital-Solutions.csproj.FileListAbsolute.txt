@@ -94,3 +94,4 @@
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/KM-Digital-Solutions.genruntimeconfig.cache
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/ref/KM-Digital-Solutions.dll
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/compressed/djs5yh7czv-pp70o4azsn.gz
+/Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/KM-Digital-Solutions.sourcelink.json
