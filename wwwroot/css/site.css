@@ -117,8 +117,8 @@ body {
 
 .hero h1 {
     color: var(--white);
-    line-height: 0.98;
-    letter-spacing: -3px;
+    line-height: 1;
+    letter-spacing: -2px;
     max-width: 760px;
 }
 
@@ -126,6 +126,11 @@ body {
     color: var(--muted);
     max-width: 700px;
     line-height: 1.75;
+}
+
+.hero-note {
+    color: rgba(255, 255, 255, 0.76);
+    font-weight: 600;
 }
 
 .hero-dashboard {
@@ -239,6 +244,41 @@ body {
     border: 1px solid rgba(11, 19, 32, 0.08);
 }
 
+.project-preview {
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid rgba(11, 19, 32, 0.08);
+    border-radius: 18px;
+    background:
+        linear-gradient(rgba(8, 17, 31, 0.16), rgba(8, 17, 31, 0.82)),
+        linear-gradient(135deg, #244d34, #c9a96e);
+    color: var(--white);
+    padding: 36px;
+    box-shadow: 0 24px 65px rgba(11, 19, 32, 0.16);
+}
+
+.project-preview span {
+    color: var(--gold-hover);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-preview h3 {
+    max-width: 520px;
+    margin: 18px 0 10px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.project-preview p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+}
+
 .featured-project h2 {
     color: var(--navy);
     letter-spacing: -1.8px;
@@ -261,6 +301,10 @@ body {
 .feature-list li {
     color: var(--navy);
     font-weight: 600;
+}
+
+.feature-list.single-column {
+    grid-template-columns: 1fr;
 }
 
 #services {
@@ -311,6 +355,112 @@ body {
     color: #667085;
     line-height: 1.7;
     margin: 0;
+}
+
+.process-section,
+.pricing-section,
+.content-section {
+    background: var(--cream);
+}
+
+.process-section h2,
+.pricing-section h2,
+.content-section h2 {
+    color: var(--navy);
+    letter-spacing: -1.4px;
+}
+
+.process-section .lead,
+.pricing-section .lead,
+.content-section p {
+    color: #667085;
+    line-height: 1.75;
+}
+
+.step-card,
+.value-panel,
+.contact-form {
+    height: 100%;
+    border: 1px solid var(--card-border);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 18px 50px rgba(11, 19, 32, 0.08);
+    padding: 32px;
+}
+
+.step-card span,
+.eyebrow {
+    color: var(--gold);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.step-card h3,
+.value-panel h3 {
+    color: var(--navy);
+    font-weight: 800;
+    margin-top: 18px;
+}
+
+.page-hero {
+    background: linear-gradient(135deg, #08111f 0%, #111c2e 100%);
+    color: var(--white);
+    padding: 110px 0 90px;
+}
+
+.page-hero h1 {
+    max-width: 880px;
+    margin-top: 18px;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.page-hero p {
+    max-width: 760px;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 1.2rem;
+    line-height: 1.75;
+}
+
+.content-section {
+    padding: 100px 0;
+}
+
+.alt-section {
+    background: #efe9de;
+}
+
+.contact-form label {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+    border-radius: 14px;
+    border-color: rgba(11, 19, 32, 0.16);
+    padding: 13px 15px;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 0.2rem rgba(201, 169, 110, 0.2);
+}
+
+.contact-box {
+    border-radius: 18px;
+    background: #f6f2ea;
+    padding: 22px;
+}
+
+.contact-box p {
+    margin: 8px 0 0;
 }
 
 footer {

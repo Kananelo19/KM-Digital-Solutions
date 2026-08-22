@@ -1,72 +1,72 @@
-﻿@{
-    ViewData["Title"] = "KM Digital Solutions";
+@{
+    ViewData["Title"] = "Websites for Local Businesses";
 }
-
-<!-- ================= HERO ================= -->
 
 <section class="hero">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-
                 <span class="badge mb-4">
-                    LITTLE ROCK WEB DESIGN • BOOKING SYSTEMS
+                    LITTLE ROCK WEB DESIGN • CLIENT-READY WEBSITES
                 </span>
 
                 <h1 class="display-2 fw-bold">
-                    Websites That Help
-                    <br />
-                    Local Businesses
-                    <br />
-                    Get More Customers.
+                    Build a website that helps your business get calls, bookings, and trust.
                 </h1>
 
                 <p class="lead mt-4">
-                    KM Digital Solutions builds professional websites and booking systems
-                    for service businesses that need more calls, appointments, and online trust.
+                    KM Digital Solutions builds clean websites, booking flows, and simple
+                    business systems for service companies that need customers to understand
+                    the offer and take action.
                 </p>
 
                 <div class="mt-5">
-                    <a class="btn btn-success btn-lg px-5 me-3">
+                    <a class="btn btn-success btn-lg px-5 me-3"
+                       asp-controller="Home"
+                       asp-action="Contact">
                         Get Free Website Preview
                     </a>
 
-                    <a class="btn btn-outline-light btn-lg px-5">
+                    <a class="btn btn-outline-light btn-lg px-5"
+                       asp-controller="Home"
+                       asp-action="Portfolio">
                         View Our Work
                     </a>
                 </div>
 
+                <div class="hero-note mt-4">
+                    Starting at $1,500. 50% to start. 50% before launch. Optional $99/month website care.
+                </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="hero-dashboard">
-
                     <div class="dashboard-top">
-                        <h3>Website Growth Snapshot</h3>
+                        <h3>Client Website Plan</h3>
                         <span class="live-dot"></span>
                     </div>
 
                     <div class="metric-row">
                         <div class="metric">
-                            <h2>+42%</h2>
-                            <p>More Bookings</p>
+                            <h2>01</h2>
+                            <p>Clear homepage</p>
                         </div>
 
                         <div class="metric">
-                            <h2>1,284</h2>
-                            <p>Visitors</p>
+                            <h2>02</h2>
+                            <p>Contact flow</p>
                         </div>
                     </div>
 
                     <div class="metric-row">
                         <div class="metric">
-                            <h2>$1,500</h2>
-                            <p>Starting Price</p>
+                            <h2>03</h2>
+                            <p>Mobile design</p>
                         </div>
 
                         <div class="metric">
-                            <h2>99/mo</h2>
-                            <p>Website Care</p>
+                            <h2>04</h2>
+                            <p>Launch support</p>
                         </div>
                     </div>
 
@@ -75,104 +75,97 @@
                     </div>
 
                     <p class="mt-3 text-secondary">
-                        Built to bring more customers online
+                        KM Digital is the studio. Each client website is built as a separate project.
                     </p>
-
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ================= TRUST ================= -->
-
 <section class="trust-section">
     <div class="container">
-
         <p class="trust-title">
-            TECHNOLOGIES WE BUILD WITH
+            BUILT FOR SMALL SERVICE BUSINESSES
         </p>
 
         <div class="trust-grid">
-            <span>ASP.NET</span>
-            <span>Microsoft</span>
-            <span>OpenAI</span>
-            <span>Stripe</span>
-            <span>Google</span>
-            <span>Supabase</span>
+            <span>Barbershops</span>
+            <span>Landscaping</span>
+            <span>Cleaning</span>
+            <span>Repair</span>
+            <span>Consulting</span>
+            <span>Local Services</span>
         </div>
-
     </div>
 </section>
-
-<!-- ================= FEATURED PROJECT ================= -->
 
 <section class="featured-project">
     <div class="container">
         <div class="row align-items-center">
-
             <div class="col-lg-6">
-                <img
-                    class="img-fluid rounded-4 shadow-lg"
-                    src="https://placehold.co/900x650/111827/F5F5F5?text=A's+Barbershop+Website" />
+                <div class="project-preview">
+                    <span>Project #1</span>
+                    <h3>Gardening Company Website</h3>
+                    <p>Services • Quote Requests • Gallery • Mobile Launch</p>
+                </div>
             </div>
 
             <div class="col-lg-6">
-
                 <small class="text-uppercase text-success">
-                    Featured Project
+                    First Client Direction
                 </small>
 
                 <h2 class="display-5 fw-bold mt-3">
-                    Barbershop Website + Booking System
+                    Gardening Company Website
                 </h2>
 
                 <p class="lead mt-4">
-                    A professional website and booking platform designed to help a barbershop
-                    get appointments, manage customers, and look trusted online.
+                    Our first client project starts with a focused service website: services,
+                    local area, photo-ready sections, quote request, and a simple path for customers
+                    to call or message.
                 </p>
 
                 <ul class="feature-list">
-                    <li>✓ Customer Booking</li>
-                    <li>✓ Barber Dashboard</li>
-                    <li>✓ Manager Portal</li>
-                    <li>✓ Mobile Friendly</li>
-                    <li>✓ Website Care Ready</li>
+                    <li>Quote Request</li>
+                    <li>Service Sections</li>
+                    <li>Before/After Gallery</li>
+                    <li>Mobile Friendly</li>
+                    <li>Local Trust Copy</li>
+                    <li>Launch Checklist</li>
                 </ul>
 
-                <a class="btn btn-success mt-3">
-                    View Case Study
+                <a class="btn btn-success mt-3"
+                   asp-controller="Home"
+                   asp-action="Contact">
+                    Start Similar Project
                 </a>
-
             </div>
         </div>
     </div>
 </section>
 
-<!-- ================= SERVICES ================= -->
-
 <section id="services" class="py-5">
     <div class="container">
-
         <div class="text-center mb-5">
             <h2 class="display-5 fw-bold">
                 What We Build
             </h2>
 
             <p class="lead">
-                Websites and systems that help service businesses get customers.
+                A focused offer we can deliver fast and improve with every customer.
             </p>
         </div>
 
         <div class="row g-4">
-
             <div class="col-lg-4">
                 <div class="card service-card">
                     <div class="card-body">
                         <h1>01</h1>
                         <h3>Business Websites</h3>
                         <p>
-                            Clean, professional websites built to make your business look trusted online.
+                            Professional websites with clear services, trust sections, call buttons,
+                            quote forms, and mobile-first layouts.
                         </p>
                     </div>
                 </div>
@@ -184,7 +177,8 @@
                         <h1>02</h1>
                         <h3>Booking Websites</h3>
                         <p>
-                            Websites with appointment booking for barbers, salons, cleaners, and local services.
+                            Appointment and request flows for barbers, salons, cleaners, consultants,
+                            and other service businesses.
                         </p>
                     </div>
                 </div>
@@ -196,21 +190,66 @@
                         <h1>03</h1>
                         <h3>Website Care</h3>
                         <p>
-                            Monthly support for updates, fixes, small changes, and keeping the site running.
+                            Monthly support for updates, fixes, edits, launch checks, and keeping
+                            the site healthy after launch.
                         </p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- ================= PRICING ================= -->
+<section id="process" class="process-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">
+                How We Deliver
+            </h2>
+
+            <p class="lead">
+                KM Digital sells and manages the work. Each client website gets its own clean project.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="step-card">
+                    <span>01</span>
+                    <h3>Preview</h3>
+                    <p>We create a private website preview using the business name, offer, and target customers.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="step-card">
+                    <span>02</span>
+                    <h3>Scope</h3>
+                    <p>We confirm pages, content, payment terms, domain needs, and launch expectations.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="step-card">
+                    <span>03</span>
+                    <h3>Build</h3>
+                    <p>The client site is coded separately, tested on mobile, and prepared for launch.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="step-card">
+                    <span>04</span>
+                    <h3>Launch</h3>
+                    <p>We connect the domain, hand over agreed assets, and offer monthly website care.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="pricing-section py-5">
     <div class="container">
-
         <div class="text-center mb-5">
             <h2 class="display-5 fw-bold">
                 Websites Starting at $1,500
@@ -222,10 +261,11 @@
         </div>
 
         <div class="text-center">
-            <a class="btn btn-success btn-lg px-5">
+            <a class="btn btn-success btn-lg px-5"
+               asp-controller="Home"
+               asp-action="Contact">
                 Get Free Website Preview
             </a>
         </div>
-
     </div>
 </section>

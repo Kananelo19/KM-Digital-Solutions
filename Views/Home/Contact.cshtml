@@ -1,0 +1,108 @@
+@model KM_Digital_Solutions.Models.ContactFormViewModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="page-hero">
+    <div class="container">
+        <span class="eyebrow">Start a Project</span>
+        <h1>Tell us what your business needs online.</h1>
+        <p>
+            Send the basics and KM Digital Solutions can turn it into a website preview,
+            a clear scope, and a launch plan.
+        </p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                @if (TempData["ContactSuccess"] is string successMessage)
+                {
+                    <div class="alert alert-success rounded-3">
+                        @successMessage
+                    </div>
+                }
+
+                <form asp-action="Contact" method="post" class="contact-form">
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Your name" />
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="BusinessName" class="form-label"></label>
+                            <input asp-for="BusinessName" class="form-control" placeholder="Business name" />
+                            <span asp-validation-for="BusinessName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Phone" class="form-label"></label>
+                            <input asp-for="Phone" class="form-control" placeholder="Phone number" />
+                            <span asp-validation-for="Phone" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Email address" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="ProjectType" class="form-label"></label>
+                            <select asp-for="ProjectType" class="form-select">
+                                <option value="">Choose one</option>
+                                <option>Business website</option>
+                                <option>Booking website</option>
+                                <option>Website redesign</option>
+                                <option>Website care plan</option>
+                                <option>Custom business software</option>
+                            </select>
+                            <span asp-validation-for="ProjectType" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Message" class="form-label"></label>
+                            <textarea asp-for="Message" class="form-control" rows="6" placeholder="What does the business do? What do customers need to do on the site?"></textarea>
+                            <span asp-validation-for="Message" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-lg px-5 mt-4">
+                        Send Project Request
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="value-panel">
+                    <h3>Good first project details</h3>
+                    <ul class="feature-list single-column">
+                        <li>Business name and city</li>
+                        <li>Main services</li>
+                        <li>Phone number and preferred contact method</li>
+                        <li>Photos, logo, or social links if available</li>
+                        <li>Whether customers should call, book, or request a quote</li>
+                    </ul>
+
+                    <div class="contact-box mt-4">
+                        <strong>Current starter offer</strong>
+                        <p>$1,500 starting website build with optional $99/month care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

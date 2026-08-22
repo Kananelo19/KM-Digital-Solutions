@@ -21,6 +21,7 @@
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/scopedcss/bundle/KM-Digital-Solutions.styles.css
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/scopedcss/projectbundle/KM-Digital-Solutions.bundle.scp.css
+/Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/compressed/djs5yh7czv-t2ffwt56e9.gz
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/compressed/p3cd1pmxge-61n19gt1b8.gz
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/compressed/je2xyf6mth-xtxxf3hu2r.gz
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/compressed/x1i050md7f-bqjiyaj88i.gz
@@ -93,5 +94,3 @@
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/KM-Digital-Solutions.pdb
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/KM-Digital-Solutions.genruntimeconfig.cache
 /Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/ref/KM-Digital-Solutions.dll
-/Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/compressed/djs5yh7czv-pp70o4azsn.gz
-/Users/kananelomotaung/Developer/KM-Digital-Solutions/obj/Debug/net9.0/KM-Digital-Solutions.sourcelink.json

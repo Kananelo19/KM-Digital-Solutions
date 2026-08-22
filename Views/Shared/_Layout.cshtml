@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - KM Digital Solutions</title>
+    <meta name="description" content="KM Digital Solutions builds websites, booking systems, and light business software for Little Rock service businesses." />
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -59,6 +60,15 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link"
                            asp-controller="Home"
+                           asp-action="Index"
+                           asp-fragment="process">
+                            Process
+                        </a>
+                    </li>
+
+                    <li class="nav-item mx-2">
+                        <a class="nav-link"
+                           asp-controller="Home"
                            asp-action="Portfolio">
                             Portfolio
                         </a>
@@ -84,7 +94,7 @@
                         <a class="btn btn-success px-4 rounded-pill"
                            asp-controller="Home"
                            asp-action="Contact">
-                            Free Consultation
+                            Start Project
                         </a>
                     </li>
 
@@ -109,7 +119,7 @@
 
             <p class="text-secondary mt-3">
 
-                Websites • Booking Systems • AI Automation
+                Websites • Booking Systems • Business Software
 
             </p>
 
