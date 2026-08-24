@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Collections.Concurrent;
 using Microsoft.AspNetCore.Mvc;
 using KM_Digital_Solutions.Models;
 
@@ -6,6 +7,8 @@ namespace KM_Digital_Solutions.Controllers;
 
 public class HomeController : Controller
 {
+    private static readonly ConcurrentQueue<LeadViewModel> ProjectLeads = new();
+
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
@@ -50,8 +53,19 @@ public class HomeController : Controller
             model.Phone,
             model.Email);
 
+        ProjectLeads.Enqueue(LeadViewModel.FromContactForm(model));
+
         TempData["ContactSuccess"] = "Thanks. Your project request was received. KM Digital Solutions will follow up with the next step.";
         return RedirectToAction(nameof(Contact));
+    }
+
+    public IActionResult Leads()
+    {
+        var leads = ProjectLeads
+            .OrderByDescending(lead => lead.SubmittedAt)
+            .ToList();
+
+        return View(leads);
     }
 
     public IActionResult Privacy()
