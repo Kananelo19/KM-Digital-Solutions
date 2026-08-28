@@ -1,5 +1,6 @@
 using System.Diagnostics;
-using System.Collections.Concurrent;
+using System.Text.Json;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using KM_Digital_Solutions.Models;
 
@@ -7,13 +8,15 @@ namespace KM_Digital_Solutions.Controllers;
 
 public class HomeController : Controller
 {
-    private static readonly ConcurrentQueue<LeadViewModel> ProjectLeads = new();
+    private static readonly object LeadFileLock = new();
 
     private readonly ILogger<HomeController> _logger;
+    private readonly string _leadStorePath;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IWebHostEnvironment environment)
     {
         _logger = logger;
+        _leadStorePath = Path.Combine(environment.ContentRootPath, "App_Data", "leads.json");
     }
 
     public IActionResult Index()
@@ -53,7 +56,7 @@ public class HomeController : Controller
             model.Phone,
             model.Email);
 
-        ProjectLeads.Enqueue(LeadViewModel.FromContactForm(model));
+        SaveLead(LeadViewModel.FromContactForm(model));
 
         TempData["ContactSuccess"] = "Thanks. Your project request was received. KM Digital Solutions will follow up with the next step.";
         return RedirectToAction(nameof(Contact));
@@ -61,11 +64,7 @@ public class HomeController : Controller
 
     public IActionResult Leads()
     {
-        var leads = ProjectLeads
-            .OrderByDescending(lead => lead.SubmittedAt)
-            .ToList();
-
-        return View(leads);
+        return View(GetSavedLeads());
     }
 
     public IActionResult Privacy()
@@ -80,5 +79,56 @@ public class HomeController : Controller
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
         });
+    }
+
+    private IReadOnlyList<LeadViewModel> GetSavedLeads()
+    {
+        lock (LeadFileLock)
+        {
+            if (!System.IO.File.Exists(_leadStorePath))
+            {
+                return [];
+            }
+
+            var json = System.IO.File.ReadAllText(_leadStorePath);
+
+            if (string.IsNullOrWhiteSpace(json))
+            {
+                return [];
+            }
+
+            try
+            {
+                return JsonSerializer.Deserialize<List<LeadViewModel>>(json) ?? [];
+            }
+            catch (JsonException exception)
+            {
+                _logger.LogError(exception, "Could not read saved KM Digital leads from {LeadStorePath}", _leadStorePath);
+                return [];
+            }
+        }
+    }
+
+    private void SaveLead(LeadViewModel lead)
+    {
+        lock (LeadFileLock)
+        {
+            var directory = Path.GetDirectoryName(_leadStorePath);
+
+            if (!string.IsNullOrWhiteSpace(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            var leads = GetSavedLeads().ToList();
+            leads.Insert(0, lead);
+
+            var json = JsonSerializer.Serialize(leads, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            System.IO.File.WriteAllText(_leadStorePath, json);
+        }
     }
 }

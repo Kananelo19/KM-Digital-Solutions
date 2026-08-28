@@ -1,79 +1,78 @@
 @model IReadOnlyList<KM_Digital_Solutions.Models.LeadViewModel>
 
 @{
-    ViewData["Title"] = "Project Leads";
+    ViewData["Title"] = "Leads";
 }
 
 <section class="page-hero page-hero-compact">
     <div class="container">
-        <span class="eyebrow">KM Digital Dashboard</span>
-        <h1>Project leads</h1>
+        <span class="eyebrow">Lead Dashboard</span>
+        <h1>Project requests</h1>
         <p>
-            Review project requests submitted through the KM Digital Solutions contact form.
-            These leads are stored while the app is running.
+            Every valid contact form submission is saved here so KM Digital can follow up
+            and turn conversations into paid work.
         </p>
     </div>
 </section>
 
 <section class="content-section">
     <div class="container">
+        <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+            <div>
+                <h2 class="fw-bold mb-2">Saved Leads</h2>
+                <p class="mb-0">Total requests: @Model.Count</p>
+            </div>
+
+            <a class="btn btn-success align-self-lg-start"
+               asp-controller="Home"
+               asp-action="Contact">
+                Add Test Lead
+            </a>
+        </div>
+
         @if (Model.Count == 0)
         {
             <div class="empty-state">
-                <h2>No leads yet</h2>
-                <p>Submit the contact form once, then refresh this page to see the request here.</p>
-                <a class="btn btn-success"
-                   asp-controller="Home"
-                   asp-action="Contact">
-                    Test Contact Form
-                </a>
+                <h3>No leads yet</h3>
+                <p>
+                    Submit the Contact form once, then come back here. The lead should still
+                    show after you stop and restart the app.
+                </p>
             </div>
         }
         else
         {
-            <div class="leads-header">
-                <div>
-                    <h2>@Model.Count Project Lead@(Model.Count == 1 ? "" : "s")</h2>
-                    <p>Newest requests appear first.</p>
-                </div>
+            <div class="lead-list">
+                @foreach (var lead in Model)
+                {
+                    <article class="lead-card">
+                        <div class="lead-card-top">
+                            <div>
+                                <span class="eyebrow">@lead.ProjectType</span>
+                                <h3>@lead.BusinessName</h3>
+                                <p>@lead.Name</p>
+                            </div>
 
-                <a class="btn btn-success"
-                   asp-controller="Home"
-                   asp-action="Contact">
-                    Add Test Lead
-                </a>
-            </div>
+                            <span class="lead-date">
+                                @lead.SubmittedAt.ToLocalTime().ToString("MMM d, yyyy h:mm tt")
+                            </span>
+                        </div>
 
-            <div class="table-responsive leads-table-wrap">
-                <table class="table leads-table align-middle">
-                    <thead>
-                        <tr>
-                            <th>Submitted</th>
-                            <th>Name</th>
-                            <th>Business</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Project</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var lead in Model)
-                        {
-                            <tr>
-                                <td>@lead.SubmittedAt.ToString("MMM d, yyyy h:mm tt")</td>
-                                <td>@lead.Name</td>
-                                <td>@lead.BusinessName</td>
-                                <td>@lead.Phone</td>
-                                <td>
-                                    <a href="mailto:@lead.Email">@lead.Email</a>
-                                </td>
-                                <td>@lead.ProjectType</td>
-                                <td>@lead.Message</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                        <div class="lead-contact-grid">
+                            <div>
+                                <strong>Phone</strong>
+                                <a href="tel:@lead.Phone">@lead.Phone</a>
+                            </div>
+
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:@lead.Email">@lead.Email</a>
+                            </div>
+                        </div>
+
+                        <p class="lead-message">@lead.Message</p>
+                    </article>
+                }
             </div>
         }
     </div>

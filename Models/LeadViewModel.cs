@@ -2,7 +2,9 @@ namespace KM_Digital_Solutions.Models;
 
 public class LeadViewModel
 {
-    public DateTime SubmittedAt { get; set; } = DateTime.Now;
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public DateTime SubmittedAt { get; set; } = DateTime.UtcNow;
 
     public string Name { get; set; } = string.Empty;
 
@@ -16,17 +18,18 @@ public class LeadViewModel
 
     public string Message { get; set; } = string.Empty;
 
-    public static LeadViewModel FromContactForm(ContactFormViewModel model)
+    public static LeadViewModel FromContactForm(ContactFormViewModel form)
     {
         return new LeadViewModel
         {
-            SubmittedAt = DateTime.Now,
-            Name = model.Name,
-            BusinessName = model.BusinessName,
-            Phone = model.Phone,
-            Email = model.Email,
-            ProjectType = model.ProjectType,
-            Message = model.Message
+            Id = Guid.NewGuid(),
+            SubmittedAt = DateTime.UtcNow,
+            Name = form.Name.Trim(),
+            BusinessName = form.BusinessName.Trim(),
+            Phone = form.Phone.Trim(),
+            Email = form.Email.Trim(),
+            ProjectType = form.ProjectType.Trim(),
+            Message = form.Message.Trim()
         };
     }
 }
